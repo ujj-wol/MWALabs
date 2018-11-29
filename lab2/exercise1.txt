@@ -1,0 +1,39 @@
+1. Explain why we want to sometime use setImmediate instead of setTimeout?
+-> 
+If we want to run a callback at the check phase of the event loop after the IO events' callbacks or after the incoming connections have been setup we will use setImmediate.
+
+Callbacks in setTimeout on the otherhand are registered in the timers phase of the event loop and is run when the event loop reaches the Timers queue. 
+
+Also callback to setImmediate is registered immediately whereas that to setTimeout is registered after the timeout time.
+
+
+2. Explain the difference between process.nextTick and setImmediate ?
+-> 
+Callbacks in process.nextTick are registered immediately to the nextTick Queue which is outside the event loop. Node processes all the callbacks in the nextTick Queue(i.e. a kind of Priority Queue) after the current operation completes and before the event loop continues. 
+
+This is not the case for setImmediate however which schedules the callback to run at check phase of the event loop. Although the callback in setImmediate is immediately registered to check phase, its execution happens only after the execution in the event loop reaches to the check phase.
+
+
+3. Name 10 core modules that node provide by default.
+-> 
+a. http:	
+	http module includes classes, methods and events to create Node.js http server. Eg: http.createServer();
+b. url:	
+	url module includes methods for URL resolution and parsing.
+c. querystring:	
+	querystring module includes methods to deal with query string.
+d. path:	
+	path module includes methods and so provides utility to work or deal with file and directory paths.
+e. fs:	
+	fs module includes classes, methods, and events to work with file I/O (files and directives) in Node. Eg: fs.readdirSync();
+f. util:	
+	util module includes utility functions useful for programmers.
+g. net:
+	the net module provides an asynchronous network API for creating stream-based TCP or IPC servers (net.createServer()) and clients (net.createConnection()).
+h. dns
+	to do DNS lookups and name resolution functions
+i. events:
+	to handle events
+j. os:
+	provides a number of  os related utility methods to get info about the current os.
+
