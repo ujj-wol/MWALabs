@@ -13,6 +13,9 @@
 
 const os = require('os');
 
+const minMemory = 4;
+const minCpuCores = 2;
+
 function checkSystem() {
     console.log('\nChecking your system...');
 
@@ -20,16 +23,16 @@ function checkSystem() {
     const totalMemory = (os.totalmem() / 1000000000);
     const freeMemory = (os.freemem() / 1000000000);
 
-    if (totalMemory < 4) {
+    if (totalMemory < minMemory) {
         console.log('This app needs at least 4 GB of RAM');
         return;
-    } else if (totalCpus < 2) {
+    } else if (totalCpus < minCpuCores) {
         console.log('Processor is not supported');
         return;
     } else {
         console.log('System is checked successfully');
-        console.log(`Processor is supported: Your system has ${totalCpus} cores`);
-        console.log(`System has enough memory: Total = ${totalMemory} GB\n\t\t Free = ${freeMemory} GB`);
+        console.log(`Your system has ${totalCpus} cores`);
+        console.log(`Memory: Total = ${totalMemory} GB\n\t\tFree = ${freeMemory} GB`);
     }
 }
 
@@ -45,10 +48,10 @@ const observable$ = Observable.create(subscriber => {
     const totalCpus = os.cpus().length;
     const totalMemory = (os.totalmem() / 1000000000);
 
-    if (totalMemory < 4) {
+    if (totalMemory < minMemory) {
         subscriber.next('This app needs at least 4 GB of RAM');
         return;
-    } else if (totalCpus < 2) {
+    } else if (totalCpus < minCpuCores) {
         subscriber.next('Processor is not supported');
         return;
     } else 
@@ -59,8 +62,34 @@ function checkSystem_new() {
     observable$.subscribe(
         (data) => console.log(data),
         (error) => console.log(error),
-        () => console.log(("System is checked successfully"))
+        () => console.log("System is checked successfully")
     );
 }
 
 checkSystem_new();
+
+
+//using observable from Behavior Subject
+const { BehaviorSubject } = require('rxjs');
+
+function checkSystem_another() {
+    const myObservable$ = new BehaviorSubject('\nChecking your system...');
+
+    myObservable$.subscribe(
+        data => console.log(data),
+        null,
+        () => console.log("System is checked successfully")
+    );
+
+    if ((os.totalmem() / 1000000000) < minMemory) {
+        myObservable$.next('This app needs at least 4 GB of RAM');
+
+    } else if (os.cpus().length < minCpuCores) {
+        myObservable$.next('Processor is not supported');
+        
+    } else 
+        myObservable$.complete();
+}
+
+checkSystem_another();
+
