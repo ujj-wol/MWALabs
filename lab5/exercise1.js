@@ -21,7 +21,7 @@ const app = express();
 // allow app to run behind any proxy
 app.enable('trust proxy');
 // not to reveal framework name to client
-app.set('X-powered-by', false);
+app.set('x-powered-by', false);
 // route should be strict
 app.set('strict routing', true);
 // route should be case-sensitive 
@@ -31,32 +31,15 @@ app.enable('case sensitive routing');
 
 
 const port = 8080;
-const url = 'https://randomuser.me/api/?results=1';
-
-
-// app.get('/users', function(req, res) {
-//     // disallow proxy to cache response and allow response caching for 1 day to client
-//     res.set({'Cache-Control': 'private, max-age=86400',
-//             'X-powered-by': false
-//         });
-//     res.json(json_obj);
-//     axios.get(url)
-//     .then(function(response) {
-//         response.data.pipe(res);
-//         console.log(response);
-//     })
-//     .catch((err) => console.log('eroor occurred!!'));
-// });
+const url = 'https://randomuser.me/api/?results=2';
 
 app.get('/users', (req, res) => {
     axios.get(url)
         .then((data) => {
             console.log(data);
-            res.writeHead(200, {
-                'Content-Type': 'application/json'
-            });
-            res.set('Cache-Control', 'private,max-age=86400')
-            res.end(JSON.stringify(data.data));
+            //res.writeHead(200, {'Content-Type': 'application/json'});
+            res.set('Cache-Control', 'private,max-age=86400');
+            res.json(data.data);
         })
         .catch((error) => {
             res.end(`Error occurred!! \n${error.message}`)
