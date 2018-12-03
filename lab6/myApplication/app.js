@@ -15,6 +15,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+app.disable('x-powered-by');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,5 +45,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(8080);
 
 module.exports = app;
