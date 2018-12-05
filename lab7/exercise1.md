@@ -3,3 +3,13 @@
     b. Booksa can be borrowed by students, so the librarian will be able to chekc all borrowed books and their return date so he may contact students who are late returning their books.
 */
 
+// Books Collection
+
+{
+    _id: ObjectId(),
+    ISBN: '',
+    authors: [],
+    keywords: [],
+    student: '',
+    returnDate: ''
+}
