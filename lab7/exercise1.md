@@ -5,6 +5,8 @@
 
 // Books Collection
 
+```
+
 {
     _id: ObjectId(),
     ISBN: '',
@@ -13,3 +15,5 @@
     student: '',
     returnDate: ''
 }
+
+```
