@@ -1,3 +1,5 @@
+import {lab, printDate} from './package';
+
 function University (name: String, dept: String): void {
     this.name = name;
     this.dept = dept;
@@ -8,3 +10,6 @@ function University (name: String, dept: String): void {
 
 var mum = new University("MUM", "Computer Science");
 mum.graduation(2019);
+
+console.log({lab});
+console.log(printDate());
