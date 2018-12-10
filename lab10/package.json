@@ -4,12 +4,9 @@
   "description": "Re-write the following code using TypeScript. Try to be as explicit as possible and add Types to evertyhing you can. When you are done, transpile the TS code to JS code.",
   "main": "exercise.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "./node_modules/.bin/webpack ./exercise.js -o ./bundledExercise.js"
   },
-  // //stackoverflow says to do this but even it doesnot help
-  // "scripts": {
-  //   "start": "webpack"
-  // },
   "author": "Ujjwol",
   "license": "ISC",
   "devDependencies": {
