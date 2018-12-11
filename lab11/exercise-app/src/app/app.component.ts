@@ -11,7 +11,7 @@ export class AppComponent {
   counterReadFromChild: number;
 
   //create a property ComponentCounterValue and bind/pass this to your Counter component input
-  ComponentCounterValue = 5;
+  ComponentCounterValue = 10;
 
   readCounterValueFromChild(value) {
     this.counterReadFromChild = value;
