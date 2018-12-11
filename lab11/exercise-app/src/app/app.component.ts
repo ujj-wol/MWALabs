@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'exercise-app';
+  
+  counterReadFromChild: number;
+
+  readCounterValueFromChild(value) {
+    this.counterReadFromChild = value;
+    console.log(value);
+  }
 }
