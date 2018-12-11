@@ -11,7 +11,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
       {{ counterValue }}
     <button (click)="increment()">+</button>
 
-    <h4>{{ComponentCounterValue}}</h4>
+    <h4>ComponentCounterValue passed from Parent: {{counter}}</h4>
   `,
   //inputs: ['counter'],  //can put with decoration inside the class
   //outputs: ['counterChange'],

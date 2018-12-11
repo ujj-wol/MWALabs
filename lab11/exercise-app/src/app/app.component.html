@@ -3,6 +3,6 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <h4>Counter at app-component: {{counterReadFromChild}}</h4>
-  <app-counter (counterFromChild)="readCounterValueFromChild($event)" [counter]=5></app-counter>
+  <h4>After updating ComponentCounterValue by listening to child's counterChange event : {{ComponentCounterValue}}</h4>
+  <app-counter (counterFromChild)="readCounterValueFromChild($event)" [counter]=ComponentCounterValue></app-counter>
 </div>
