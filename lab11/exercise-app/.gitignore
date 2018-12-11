@@ -41,3 +41,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# ignore all files and folders except app folder
+/*
+!/src
+/src/*
+!/src/app
