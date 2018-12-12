@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { SmartComponent } from './smart/smart.component';
 import { DumbComponent } from './dumb/dumb.component';
 import { IsVisibleDirective } from './is-visible.directive';
+import { LoggableDirective } from './loggable.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SmartComponent,
     DumbComponent,
-    IsVisibleDirective
+    IsVisibleDirective,
+    LoggableDirective
   ],
   imports: [
     BrowserModule
