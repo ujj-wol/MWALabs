@@ -1,0 +1,9 @@
+<h2>User List</h2>
+
+<ul style="list-style-type: none">
+  <li *ngFor='let user of usersData.results; let i = index;'>
+    <a [routerLink]="[i]"> {{i+1}}. {{ user.name.first + " " + user.name.last }} </a>
+  </li>
+</ul>
+<!-- <router-outlet></router-outlet> -->
+<p>This is from users component!</p>

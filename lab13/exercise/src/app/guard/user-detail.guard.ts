@@ -16,7 +16,6 @@ export class UserDetailGuard implements CanActivate {
     state: RouterStateSnapshot)
     : Observable<boolean> | Promise<boolean> | boolean {
       console.log(next);
-      console.log(next.params.id);
       console.log(state);
       
       if(next.params.id < this.myDataService.getCachedData().results.length)

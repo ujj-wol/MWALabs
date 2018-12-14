@@ -7,13 +7,13 @@ import { DataService } from './service/data.service';
   styles: []
 })
 export class AppComponent{
-  title = 'exercise';
+  title = 'Lab13: Service, Routing, Guard, NgModule, LazyLoading, HttpClientModule';
 
   constructor(public myDataService: DataService) {
     myDataService.getOnlineData()
       .subscribe(data => {
         localStorage.setItem('userData', JSON.stringify(data));
-        console.log(myDataService.getCachedData());
+        //console.log(myDataService.getCachedData());
       });
 
   }
@@ -22,7 +22,6 @@ export class AppComponent{
 //   this.myDataService.getOnlineData()
 //       .subscribe(data => {
 //         localStorage.setItem('userData', JSON.stringify(data));
-//         console.log(this.myDataService.getCachedData());
 //       });
 // }
 

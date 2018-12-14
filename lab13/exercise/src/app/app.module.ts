@@ -9,7 +9,7 @@ import { UsersModule } from './users/users.module';
 import { ErrorComponent } from './error/error.component';
 
 // import { DataService } from './service/data.service';  //not required due to providedIn: 'root' inside @Injectable for this service
-// same for user-detail guard.
+// same for user-detail guard. Also remove UsersModule from imports inside @NgModule below
 
 @NgModule({
   declarations: [
@@ -20,8 +20,8 @@ import { ErrorComponent } from './error/error.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    UsersModule
+    HttpClientModule
+    //,UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
