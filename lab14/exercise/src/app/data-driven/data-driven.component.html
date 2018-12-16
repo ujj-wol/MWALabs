@@ -1,0 +1,24 @@
+<form [formGroup]='myForm' (ngSubmit)='onSubmit()'>
+  <div formGroupName='userData'>
+    <div>
+      Username:
+      <input type="text" formControlName='username'>
+    </div>
+    <div>
+      Email:
+      <input type="text" formControlName='email'>
+    </div>
+  </div>
+
+  <div>
+    Password:
+    <input type="password" formControlName='password'>
+  </div>
+
+  <div *ngFor='let g of genders'>
+    <input type="radio" formControlName="gender" [value]="g"> {{g}}
+  </div>
+
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+
+</form>
